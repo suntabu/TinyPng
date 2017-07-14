@@ -27,7 +27,8 @@ def compress_path(path, width):
 		return
 	else:
 		fromFilePath = path 			# 源路径
-		toFilePath = path+"/tiny" 		# 输出路径
+		#toFilePath = path+"/tiny" 		# 输出路径
+		toFilePath = path+"/tiny" 		# 输出路径与源路径相同则替换原始图片，反正有Git版本控制
 		print "fromFilePath=%s" %fromFilePath
 		print "toFilePath=%s" %toFilePath
 
@@ -45,7 +46,7 @@ def compress_path(path, width):
 					else:
 						os.mkdir(toFullPath)
 					compress_core(root + '/' + name, toFullName, width)
-			break									# 仅遍历当前目录
+# 			break									# 仅遍历当前目录
 
 # 仅压缩指定文件
 def compress_file(inputFile, width):
